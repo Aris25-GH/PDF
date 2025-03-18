@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF Password Remover Tool</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to styles.css -->
+  <meta name="description" content="Free online tool to remove passwords and security from PDF files. Decrypt PDFs easily and maintain high-quality output.">
+  <meta name="keywords" content="PDF Password Remover, PDF Security Remover, Decrypt PDF, Unlock PDF, Free PDF Tool">
+  <meta name="author" content="Your Company Name">
+  <title>PDF Password and Security Remover Tool</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
 </head>
 <body>
   <header>
@@ -13,25 +16,30 @@
   </header>
 
   <main>
+    <!-- File Upload Section -->
     <section id="upload-section">
       <input type="file" id="pdf-file" accept=".pdf">
       <button id="remove-security">Remove Security</button>
     </section>
 
+    <!-- File Size Info -->
     <section id="file-info">
       <p>Original File Size: <span id="original-size">0 MB</span></p>
       <p>Processed File Size: <span id="processed-size">0 MB</span></p>
     </section>
 
+    <!-- Download Section -->
     <section id="download-section" style="display:none;">
       <a id="download-link" download>Download Decrypted PDF</a>
     </section>
 
+    <!-- Progress Bar -->
     <section id="progress-section" style="display:none;">
       <progress id="progress-bar" value="0" max="100"></progress>
       <p id="progress-text">0%</p>
     </section>
 
+    <!-- Error Message -->
     <section id="error-section" style="display:none;">
       <p id="error-message" style="color: red;"></p>
     </section>
@@ -41,6 +49,6 @@
     <p>&copy; 2023 Your Company Name. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Link to JavaScript -->
 </body>
 </html>
