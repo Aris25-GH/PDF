@@ -1,3 +1,12 @@
+// script.js
+document.getElementById('pdf-file').addEventListener('change', function (e) {
+  const file = e.target.files[0];
+  if (file) {
+    const fileSize = (file.size / (1024 * 1024)).toFixed(2); // Convert to MB
+    document.getElementById('original-size').textContent = `${fileSize} MB`;
+  }
+});
+
 document.getElementById('remove-security').addEventListener('click', async function () {
   const fileInput = document.getElementById('pdf-file');
   const file = fileInput.files[0];
@@ -37,7 +46,7 @@ document.getElementById('remove-security').addEventListener('click', async funct
     document.getElementById('progress-section').style.display = 'none';
   } catch (error) {
     console.error('Error:', error);
-    showError('An error occurred while processing the file.');
+    showError(`An error occurred: ${error.message}`);
     document.getElementById('progress-section').style.display = 'none';
   }
 });
