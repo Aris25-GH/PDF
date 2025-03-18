@@ -4,6 +4,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "PDF Decryption API is running!", 200
+
 @app.route('/decrypt-pdf', methods=['POST'])
 def decrypt_pdf():
     if 'file' not in request.files:
