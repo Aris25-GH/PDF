@@ -17,7 +17,7 @@ document.getElementById('remove-security').addEventListener('click', async funct
     const progressText = document.getElementById('progress-text');
 
     // Update this URL to point to your Render backend
-    const response = await fetch('https://pdf-decrypt-api.onrender.com/decrypt-pdf', {
+    const response = await fetch('https://pdf-xl6f.onrender.com/decrypt-pdf', {
       method: 'POST',
       body: formData,
     });
@@ -41,3 +41,10 @@ document.getElementById('remove-security').addEventListener('click', async funct
     document.getElementById('progress-section').style.display = 'none';
   }
 });
+
+function showError(message) {
+  const errorSection = document.getElementById('error-section');
+  const errorMessage = document.getElementById('error-message');
+  errorMessage.textContent = message;
+  errorSection.style.display = 'block';
+}
