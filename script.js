@@ -1,27 +1,43 @@
-document.getElementById('decrypt-button').addEventListener('click', async () => {
+document.getElementById('display-button').addEventListener('click', async () => {
     const fileInput = document.getElementById('file-input');
-    const password = document.getElementById('password-input').value; // Password input is not utilized
     const file = fileInput.files[0];
+    const displayDiv = document.getElementById('document-display');
+    const printButton = document.getElementById('print-button');
 
     if (!file) {
-        alert('Please upload a PDF file.');
+        alert('Please upload a document.');
         return;
     }
 
-    // Read the file
-    const arrayBuffer = await file.arrayBuffer();
+    // Clear previous display content
+    displayDiv.innerHTML = '';
+
+    // Read the file content
+    const reader = new FileReader();
     
-    // Load the PDF document; ignoreEncryption doesn't actually decrypt
-    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+    reader.onload = (e) => {
+        // Display the document content
+        displayDiv.innerHTML = `<pre>${e.target.result}</pre>`;
+        displayDiv.classList.remove('hidden');
+        printButton.classList.remove('hidden');
+    };
 
-    // Save the PDF document
-    const pdfBytes = await pdfDoc.save();
-    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    reader.readAsText(file); // For simplicity, reading as text
+});
 
-    // Create a download link
-    const downloadLink = document.getElementById('download-link');
-    downloadLink.href = URL.createObjectURL(blob);
-    downloadLink.download = 'decrypted.pdf';
-    downloadLink.style.display = 'block';
-    downloadLink.textContent = 'Click here to download the decrypted PDF.';
+document.getElementById('print-button').addEventListener('click', () => {
+    const documentDisplay = document.getElementById('document-display');
+    
+    if (documentDisplay.innerHTML) {
+        // Open a new window for printing
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>Print</title></head><body>');
+        printWindow.document.write(documentDisplay.innerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close(); // Close the document for writing
+        printWindow.print(); // Open the print dialog
+        printWindow.close(); // Close the print window
+    } else {
+        alert('Nothing to print.');
+    }
 });
