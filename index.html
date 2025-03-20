@@ -1,54 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free online tool to remove passwords and security from PDF files. Decrypt PDFs easily and maintain high-quality output.">
-  <meta name="keywords" content="PDF Password Remover, PDF Security Remover, Decrypt PDF, Unlock PDF, Free PDF Tool">
-  <meta name="author" content="Your Company Name">
-  <title>PDF Password and Security Remover Tool</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Decryptor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 </head>
 <body>
-  <header>
-    <h1>PDF Password and Security Remover Tool</h1>
-    <p>Easily remove passwords and security from your PDF files.</p>
-  </header>
 
-  <main>
-    <!-- File Upload Section -->
-    <section id="upload-section">
-      <input type="file" id="pdf-file" accept=".pdf">
-      <button id="remove-security">Remove Security</button>
-    </section>
+    <div class="container">
+        <h1>PDF Decryptor</h1>
+        <input type="file" id="file-input" accept="application/pdf" />
+        <input type="password" id="password-input" placeholder="Enter Password (not implemented)" />
+        <button id="decrypt-button">Decrypt PDF</button>
 
-    <!-- File Size Info -->
-    <section id="file-info">
-      <p>Original File Size: <span id="original-size">0 MB</span></p>
-      <p>Processed File Size: <span id="processed-size">0 MB</span></p>
-    </section>
+        <h2>Decrypted PDF:</h2>
+        <a id="download-link" style="display:none;">Download Decrypted PDF</a>
+    </div>
 
-    <!-- Download Section -->
-    <section id="download-section" style="display:none;">
-      <a id="download-link" download>Download Decrypted PDF</a>
-    </section>
-
-    <!-- Progress Bar -->
-    <section id="progress-section" style="display:none;">
-      <progress id="progress-bar" value="0" max="100"></progress>
-      <p id="progress-text">0%</p>
-    </section>
-
-    <!-- Error Message -->
-    <section id="error-section" style="display:none;">
-      <p id="error-message" style="color: red;"></p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script> <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
