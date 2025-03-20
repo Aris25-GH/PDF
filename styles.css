@@ -16,8 +16,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.hidden {
+    display: none;
+}
+
 input[type="file"],
-input[type="password"],
 button {
     margin-top: 10px;
     display: block;
