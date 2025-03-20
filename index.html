@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Decryptor</title>
+    <title>Print Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 </head>
 <body>
 
     <div class="container">
-        <h1>PDF Decryptor</h1>
-        <input type="file" id="file-input" accept="application/pdf" />
-        <input type="password" id="password-input" placeholder="Enter Password (not implemented)" />
-        <button id="decrypt-button">Decrypt PDF</button>
-
-        <h2>Decrypted PDF:</h2>
-        <a id="download-link" style="display:none;">Download Decrypted PDF</a>
+        <h1>Print Document to PDF</h1>
+        <input type="file" id="file-input" accept=".txt, .html, .pdf, .doc, .docx" />
+        <button id="display-button">Display Document</button>
+        <div id="document-display" class="hidden"></div>
+        <button id="print-button" class="hidden">Print Document</button>
     </div>
 
     <script src="script.js"></script>
